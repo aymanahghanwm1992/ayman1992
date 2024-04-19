@@ -1,0 +1,463 @@
+.scroller {
+    max-width: 1800px; /* تحديد أقصى عرض للعنصر .scroller */
+}
+  
+.scroller__inner {
+    padding-block: 2.5rem; /* إضافة هامش داخلي للعنصر .scroller__inner في الاتجاه الرأسي */
+    display: flex; /* تحديد عرض عنصر .scroller__inner بالنسبة لأبنائه */
+    flex-wrap: wrap; /* تحديد العناصر في عنصر .scroller__inner للانعطاف حسب الحاجة */
+    gap: 1rem; /* تحديد المسافة بين العناصر داخل .scroller__inner */
+}
+  
+.scroller[data-animated="true"] {
+    overflow: hidden; /* إخفاء المحتوى الزائد عند الانعطاف */
+    -webkit-mask: linear-gradient(
+      90deg,
+      transparent,
+      white 20%,
+      white 80%,
+      transparent
+    ); /* تطبيق قناع لعنصر .scroller عند الانعطاف لتحقيق التأثير المطلوب */
+    mask: linear-gradient(90deg, transparent, rgb(255, 255, 255) 20%, white 80%, transparent);
+}
+  
+.scroller[data-animated="true"] .scroller__inner {
+    width: max-content; /* جعل عنصر .scroller__inner يأخذ عرضًا ماكسيًا يتلاءم مع محتواه */
+    flex-wrap: nowrap; /* تحديد عدم انعطاف العناصر في .scroller__inner */
+    animation: scroll var(--_animation-duration, 50s)
+      var(--_animation-direction, forwards) linear infinite; /* تطبيق الأنميشن المطلوب */
+}
+  
+.scroller[data-direction="right"] {
+    --_animation-direction: reverse; /* تحديد اتجاه الأنميشن إلى اليمين */
+}
+  
+.scroller[data-direction="left"] {
+    --_animation-direction: forwards; /* تحديد اتجاه الأنميشن إلى اليسار */
+}
+  
+.scroller[data-speed="fast"] {
+    --_animation-duration: 50s; /* تحديد سرعة الأنميشن السريعة */
+}
+  
+.scroller[data-speed="slow"] {
+    --_animation-duration: 50s; /* تحديد سرعة الأنميشن البطيئة */
+}
+  
+@keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem)); /* تحديد التحرك الأفقي للأنميشن */
+    }
+}
+  
+/* الأنميشن العام */
+  
+:root {
+    --clr-neutral-100: hsl(0, 0%, 100%); /* تحديد قيمة لونية */
+    --clr-primary-100: hsl(98, 15%, 58%); /* تحديد قيمة لونية */
+    --clr-primary-400: hsl(215, 25%, 27%); /* تحديد قيمة لونية */
+    --clr-primary-800: hsl(217, 33%, 17%); /* تحديد قيمة لونية */
+    --clr-primary-900: #09f650; /* تحديد قيمة لونية */
+    --clr-primary-900: #f31515; /* تحديد قيمة لونية */
+    
+
+
+/* أنماط CSS للمجموعة الأولى */
+.scroller.fast-scroll { --clr-primary-900: hsl(138, 93%, 50%); /* تحديد قيمة لونية */
+    /* أنماط خاصة بالمجموعة الأولى التي تمتلك السرعة السريعة */
+    
+}
+
+/* أنماط CSS للمجموعة الثانية */
+.scroller.slow-scroll {--clr-primary-900: hsl(0, 75%, 50%); /* تحديد قيمة لونية */
+    /* أنماط خاصة بالمجموعة الثانية التي تمتلك السرعة البطيئة */
+}
+   
+
+
+
+
+
+/* أنماط CSS للنص داخل المجموعتين */
+.scroller .tag-list li {
+    font-size: 3.5rem; /* تكبير حجم النص */
+    color: #ffffff; /* تغيير لون النص إلى اللون الأبيض، يمكنك استبدال هذه القيمة باللون المطلوب */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+  
+html {
+    color-scheme: dark; /* تحديد نظام الألوان المفضل */
+}
+  
+body {
+    display: grid; /* تحديد العرض بالشبكة للجسم */
+    min-block-size: 100vh; /* تحديد الحد الأدنى للارتفاع للجسم */
+    place-content: center; /* توسيط المحتوى داخل الجسم */
+    font-family: system-ui; /* تحديد الخط الأساسي للنص */
+    font-size: 1.500rem; /* تحديد حجم الخط */
+    background-color: var(--clr-primary-800); /* تحديد لون خلفية الجسم */
+}
+  
+.tag-list {
+    margin: 0; /* إزالة هامش الهوية الافتراضي */
+    padding-inline: 0; /* إزالة هامش التعديل الأفقي الافتراضي */
+    list-style: none; /* إزالة نقاط التعريف الافتراضية */
+}
+  
+.tag-list li {
+    padding: 1rem; /* تحديد التباعد الداخلي لكل عنصر قائمة */
+    background: var(--clr-primary-400); /* تحديد لون خلفية عناصر القائمة */
+    border-radius: 0.5rem; /* تحديد شكل الحواف لعناصر القائمة */
+    box-shadow: 0 0.5rem 1rem -0.25rem var(--clr-primary-900); /* تحديد ظل لعناصر القائمة */
+}
+  
+/* لأغراض الاختبار للتأكد من تطابق الأنميشن بشكل صحيح */
+.test {
+    background: red !important; /* تحديد خلفية حمراء للعناصر التي تحمل الفئة .test */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * `@property` مطلوب لعمل الرسوم المتحركة.
+ * بدونه، لن تتفاوت قيم الزوايا بشكل صحيح.
+ *
+ * @see https://dev.to/afif/we-can-finally-animate-css-gradient-kdk
+ */
+@property --bg-angle {
+    inherits: false; /* تعيين خاصية التوريث إلى القيمة "false" */
+    initial-value: 0deg; /* تعيين القيمة الافتراضية للخاصية */
+    syntax: "<angle>"; /* تحديد النوع الصحيح للقيمة */
+}
+
+/**
+ * لتحريك التدرج، نقوم بتعيين الخاصية المخصصة إلى دورة كاملة واحدة.
+ * الرسم المتحرك يبدأ من القيمة الافتراضية لـ `0deg`.
+ */
+@keyframes spin {
+    to {
+        --bg-angle: 360deg; /* تحديد القيمة النهائية للخاصية المخصصة */
+    }
+}
+
+article {
+    /* إضافة الرسوم المتحركة */
+    animation: spin 2.5s infinite linear; /* تعيين الرسوم المتحركة */
+
+    /**
+     * باستخدام `background-origin` يمكننا إنشاء "حدود" باستخدام تدرجين.
+     * ولجعل التدرجات تبدو أفضل، نستخدم OKLCH.
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/background-origin
+     * @see https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl
+     */
+    background:
+        /* الألوان الخلفية لا تعمل مع `background-origin`، لذا استخدم تدرجًا. */
+        linear-gradient(
+            to bottom,
+             oklch(0.0 0.0 0 / 1),
+             oklch(0.0 0.0 0 / 1)
+        )
+        padding-box, /* تنتهي عند حواف الحاوية الداخلية */
+        conic-gradient(
+            from var(--bg-angle) in oklch longer hue,
+            oklch(0.85 0.37 0) 0 0
+        )
+        border-box; /* تمتد حتى حواف الحاوية الخارجية */
+
+    /* حدود شفافة تتيح للتدرج الخلفي أن يبرز */
+    border: 10px solid transparent;
+
+    /* قم بتشغيل الرسوم المتحركة دائمًا */
+    &:hover {
+        animation-play-state: running; /* تشغيل الرسوم المتحركة عند التحويم */
+    }
+}
+
+/******************************************************************
+ * أنماط أخرى لجعل العرض جميلًا
+ ******************************************************************/
+
+* {
+    box-sizing: border-box; /* تحديد نموذج الصندوق لكل العناصر */
+}
+
+html {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+        Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 18px; /* تعيين حجم الخط الافتراضي للصفحة */
+    line-height: 1.20; /* تعيين ارتفاع السطر */
+}
+
+body {
+    margin: 0; /* إزالة الهوامش الافتراضية */
+}
+
+main {
+    background:
+        radial-gradient(
+           
+        ),
+        linear-gradient(
+            344deg in oklch,
+           
+        );
+    display: grid; /* تحديد العنصر كشبكة */
+    height: 100svh; /* تعيين الارتفاع بالنسبة لعرض العرض والارتفاع والعرض */
+    place-items: center; /* توسيط العنصر داخل الشبكة */
+}
+
+article {
+    border-radius: 1rem; /* تدوير حواف العنصر */
+    box-shadow: 0.125rem 0.25rem 0.25rem 0.5rem oklch(0.1 0.37 315 / 0.25); /* إضافة ظل للعنصر */
+
+    padding: 1rem; /* تعيين الهوامش الداخلية للعنصر */
+    /* تحكم في حجم الصندوق */
+    width: min(90%, 500px);
+    /* أو */
+    width: max(1900px, min(90%, 500px));
+
+    & h1 {
+        line-height: 2.1; /* تعيين ارتفاع السطر لعنصر العنوان */
+        margin: 0; /* إزالة الهوامش العلوية والسفلية للعنصر */
+    }
+
+    & p {
+        margin: 0.75rem 0 0; /* تعيين الهوامش للفقرة */
+    }
+}
+
+
+
+
+
+/* تعريف الألوان والقيم الأساسية */
+:root {
+    --clr-1: #00c2ff; /* لون العنصر الأول */
+    --clr-2: #33ff8c; /* لون العنصر الثاني */
+    --clr-3: #ffc640; /* لون العنصر الثالث */
+    --clr-4: #e54cff; /* لون العنصر الرابع */
+  
+    --blur: 1rem; /* قيمة الضبابة */
+    --fs: clamp(1.5rem, 4vw, 3.5rem); /* حجم الخط */
+    --ls: clamp(-1.75px, -0.25vw, -3.5px); /* تباعد الحروف */
+  }
+  
+
+
+  /* تنسيق عنوان الصفحة */
+.title {
+    font-size: var(--fs); /* حجم الخط */
+    font-weight: 10000; /* سمك الخط */
+    letter-spacing: var(--ls); /* تباعد الحروف */
+    position: relative; /* تحديد وضعية العنوان */
+    overflow: hidden; /* عرض النص المخفي بالكامل */
+    background: var(--bg); /* استخدام لون الخلفية المحدد */
+    margin: 0; /* إزالة الهوامش */
+    text-align: center; /* وسط العنوان أفقيًا */
+}
+
+.custom-body {
+    min-height: 100vh;
+    display: flex; /* استخدام flexbox */
+    align-items: center; /* توسيط العناصر عموديًا */
+    justify-content: center; /* توسيط العناصر أفقيًا */
+}
+
+  
+  /* تنسيق العناصر التي تمثل الأضواء */
+  .aurora {
+    position: absolute; /* تحديد وضعية العناصر بالنسبة للصفحة */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /* تحديد ترتيب الطبقات */
+    mix-blend-mode: darken; /* خلط الألوان */
+    pointer-events: none; /* عدم استجابة العناصر للحدث */
+  }
+  
+  /* تنسيق العناصر الفرعية داخل الأضواء */
+  .aurora__item {
+    overflow: hidden; /* إخفاء الزوايا الزائدة */
+    position: absolute; /* تحديد وضعية العناصر بالنسبة للصفحة */
+    width: 60vw; /* العرض */
+    height: 60vw; /* الارتفاع */
+    background-color: var(--clr-1); /* استخدام لون محدد */
+    border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%; /* تحديد شكل الحواف */
+    filter: blur(var(--blur)); /* تطبيق التشويش */
+    mix-blend-mode: overlay; /* خلط الألوان */
+  }
+  
+  /* تنسيق كل عنصر ضوء على حدة */
+  .aurora__item:nth-of-type(1) {
+    top: -50%; /* الموضع العمودي */
+    animation: aurora-border 6s ease-in-out infinite, aurora-1 12s ease-in-out infinite alternate; /* الأنميشنات */
+  }
+  
+  .aurora__item:nth-of-type(2) {
+    background-color: var(--clr-3); /* استخدام لون محدد */
+    right: 0; /* الموضع الأفقي */
+    top: 0; /* الموضع العمودي */
+    animation: aurora-border 6s ease-in-out infinite, aurora-2 12s ease-in-out infinite alternate; /* الأنميشنات */
+  }
+  
+  .aurora__item:nth-of-type(3) {
+    background-color: var(--clr-2); /* استخدام لون محدد */
+    left: 0; /* الموضع الأفقي */
+    bottom: 0; /* الموضع العمودي */
+    animation: aurora-border 6s ease-in-out infinite, aurora-3 8s ease-in-out infinite alternate; /* الأنميشنات */
+  }
+  
+  .aurora__item:nth-of-type(4) {
+    background-color: var(--clr-4); /* استخدام لون محدد */
+    right: 0; /* الموضع الأفقي */
+    bottom: -50%; /* الموضع العمودي */
+    animation: aurora-border 6s ease-in-out infinite, aurora-4 24s ease-in-out infinite alternate; /* الأنميشنات */
+  }
+  
+  /* تعريف الأنميشنات */
+  @keyframes aurora-1 {
+    0% {
+      top: 0;
+      right: 0;
+    }
+  
+    50% {
+      top: 100%;
+      right: 75%;
+    }
+  
+    75% {
+      top: 100%;
+      right: 25%;
+    }
+  
+    100% {
+      top: 0;
+      right: 0;
+    }
+  }
+  
+  @keyframes aurora-2 {
+    0% {
+      top: -50%;
+      left: 0%;
+    }
+  
+    60% {
+      top: 100%;
+      left: 75%;
+    }
+  
+    85% {
+      top: 100%;
+      left: 25%;
+    }
+  
+    100% {
+      top: -50%;
+      left: 0%;
+    }
+  }
+  
+  @keyframes aurora-3 {
+    0% {
+      bottom: 0;
+      left: 0;
+    }
+  
+    40% {
+      bottom: 100%;
+      left: 75%;
+    }
+  
+    65% {
+      bottom: 40%;
+      left: 50%;
+    }
+  
+    100% {
+      bottom: 0;
+      left: 0;
+    }
+  }
+  
+  @keyframes aurora-4 {
+    0% {
+      bottom: -50%;
+      right: 0;
+    }
+  
+    50% {
+      bottom: 0%;
+      right: 40%;
+    }
+  
+    90% {
+      bottom: 50%;
+      right: 25%;
+    }
+  
+    100% {
+      bottom: -50%;
+      right: 0;
+    }
+  }
+  
+  @keyframes aurora-border {
+    0% {
+      border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%;
+    }
+  
+    25% {
+      border-radius: 47% 29% 39% 49% / 61% 19% 66% 26%;
+    }
+  
+    50% {
+      border-radius: 57% 23% 47% 72% / 63% 17% 66% 33%;
+    }
+  
+    75% {
+      border-radius: 28% 49% 29% 100% / 93% 20% 64% 25%;
+    }
+  
+    100% {
+      border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%;
+    }
+  }
+  
