@@ -460,4 +460,69 @@ article {
       border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%;
     }
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.scroller {
+    max-width: 100%; /* تغيير أقصى عرض للعنصر .scroller إلى 100٪ ليتناسب مع الهواتف المحمولة */
+}
   
+.scroller__inner {
+    padding-block: 1.5rem; /* تقليل هامش العنصر .scroller__inner في الاتجاه الرأسي لتتناسب مع الهواتف المحمولة */
+    display: flex; /* الإبقاء على عرض عنصر .scroller__inner بالنسبة لأبنائه */
+    flex-wrap: nowrap; /* إزالة الانعطاف للعناصر في .scroller__inner لتتناسب مع الهواتف المحمولة */
+    gap: 1rem; /* تحديد المسافة بين العناصر داخل .scroller__inner */
+    overflow-x: auto; /* إضافة تمرير أفقي للعنصر .scroller__inner لتتناسب مع الهواتف المحمولة */
+}
+  
+.scroller[data-animated="true"] {
+    overflow: hidden; /* الإبقاء على إخفاء المحتوى الزائد عند الانعطاف */
+    -webkit-mask: linear-gradient(
+      90deg,
+      transparent,
+      white 20%,
+      white 80%,
+      transparent
+    ); /* تطبيق قناع لعنصر .scroller عند الانعطاف لتحقيق التأثير المطلوب */
+    mask: linear-gradient(90deg, transparent, rgb(255, 255, 255) 20%, white 80%, transparent);
+}
+  
+.scroller[data-animated="true"] .scroller__inner {
+    width: max-content; /* جعل عنصر .scroller__inner يأخذ عرضًا ماكسيًا يتلاءم مع محتواه */
+    flex-wrap: nowrap; /* إزالة الانعطاف للعناصر في .scroller__inner لتتناسب مع الهواتف المحمولة */
+    animation: scroll var(--_animation-duration, 50s)
+      var(--_animation-direction, forwards) linear infinite; /* تطبيق الأنميشن المطلوب */
+}
+  
+/* الأنميشن العام */
+  
+@keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem)); /* تحديد التحرك الأفقي للأنميشن */
+    }
+}
+
+/* تعديلات إضافية لتتناسب مع الهواتف المحمولة */
+.scroller[data-direction="right"],
+.scroller[data-direction="left"] {
+    width: 100%; /* جعل عرض العنصر .scroller يكون 100٪ ليتناسب مع الهواتف المحمولة */
+}
+
