@@ -1,5 +1,5 @@
 .scroller {
-    max-width: 1000px; /* تحديد أقصى عرض للعنصر .scroller */
+    max-width: 100px; /* تحديد أقصى عرض للعنصر .scroller */
 }
   
 .scroller__inner {
