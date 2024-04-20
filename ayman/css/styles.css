@@ -1,5 +1,5 @@
 .scroller {
-    max-width: 100px; /* تحديد أقصى عرض للعنصر .scroller */
+    max-width: 1800px; /* تحديد أقصى عرض للعنصر .scroller */
 }
   
 .scroller__inner {
@@ -80,7 +80,7 @@
 
 /* أنماط CSS للنص داخل المجموعتين */
 .scroller .tag-list li {
-    font-size: 3.5rem; /* تكبير حجم النص */
+    font-size: 5.5rem; /* تكبير حجم النص */
     color: #ffffff; /* تغيير لون النص إلى اللون الأبيض، يمكنك استبدال هذه القيمة باللون المطلوب */
 }
 
